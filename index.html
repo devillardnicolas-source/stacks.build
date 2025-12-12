@@ -67,50 +67,65 @@
         .sketch-border::before { content: ''; position: absolute; inset: -4px; border: 1px dashed var(--border); border-radius: 6px; opacity: 0.3; pointer-events: none; }
         .hand-drawn { font-family: 'Caveat', cursive; }
         
-        /* HERO - MINIMAL + POWERFUL */
-        .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; position: relative; padding: 60px 24px; }
-        .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 30%, rgba(0,255,148,0.06) 0%, transparent 60%); pointer-events: none; }
-        .hero-content { position: relative; z-index: 1; max-width: 800px; animation: fadeInUp 0.8s ease-out; }
+        /* HERO - SPLIT LAYOUT */
+        .hero { min-height: 100vh; display: flex; align-items: center; position: relative; padding: 60px 24px; }
+        .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 30% 40%, rgba(0,255,148,0.06) 0%, transparent 60%); pointer-events: none; }
+        .hero-container { position: relative; z-index: 1; max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; width: 100%; }
+        .hero-left { animation: fadeInUp 0.8s ease-out; }
+        .hero-right { animation: fadeInUp 0.8s ease-out 0.2s both; }
         @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
         
-        .logo { font-family: 'JetBrains Mono', monospace; font-size: 1rem; font-weight: 600; letter-spacing: 0.05em; color: var(--accent); margin-bottom: 28px; display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; background: var(--accent-dim); border-radius: 4px; }
+        .logo { font-family: 'JetBrains Mono', monospace; font-size: 1rem; font-weight: 600; letter-spacing: 0.05em; color: var(--accent); margin-bottom: 24px; display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; background: var(--accent-dim); border-radius: 4px; }
         .logo .dot { color: var(--text-muted); }
-        .hero h1 { font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 800; letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 20px; color: var(--text); }
+        .hero h1 { font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 800; letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 16px; color: var(--text); }
         .hero h1 .accent { color: var(--accent); }
-        .hero-tagline { font-size: 1.15rem; font-weight: 500; color: var(--text-muted); margin-bottom: 12px; letter-spacing: -0.01em; }
-        .hero-sub { font-size: 0.95rem; color: var(--text-dim); max-width: 520px; margin: 0 auto 40px; line-height: 1.7; }
+        .hero-tagline { font-size: 1.1rem; font-weight: 500; color: var(--text-muted); margin-bottom: 12px; letter-spacing: -0.01em; }
+        .hero-sub { font-size: 0.9rem; color: var(--text-dim); max-width: 480px; margin-bottom: 32px; line-height: 1.7; }
         
-        .hero-cta { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 48px; }
-        .btn { padding: 14px 28px; border-radius: 6px; font-weight: 600; font-size: 0.95rem; text-decoration: none; transition: all 0.2s; display: inline-flex; align-items: center; gap: 8px; }
+        .hero-cta { display: flex; gap: 12px; flex-wrap: wrap; }
+        .btn { padding: 12px 24px; border-radius: 6px; font-weight: 600; font-size: 0.9rem; text-decoration: none; transition: all 0.2s; display: inline-flex; align-items: center; gap: 8px; }
         .btn-primary { background: var(--accent); color: var(--bg); }
         .btn-primary:hover { background: #00e085; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,255,148,0.25); }
         .btn-secondary { background: var(--surface-3); color: var(--text); border: 1px solid var(--border); }
         .btn-secondary:hover { border-color: var(--accent); background: var(--surface-4); }
+        .btn-tertiary { background: transparent; color: var(--text-muted); border: 1px solid var(--border); }
+        .btn-tertiary:hover { color: var(--text); border-color: var(--text-muted); }
         
-        .scroll-hint { position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 6px; color: var(--text-dim); font-size: 0.75rem; text-decoration: none; font-family: 'JetBrains Mono', monospace; }
-        .scroll-hint:hover { color: var(--accent); }
-        .scroll-hint .arrow { animation: bounce 2s infinite; font-size: 1.2rem; }
-        @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(6px); } }
+        /* HERO ARCHITECTURE MINI */
+        .arch-mini { background: var(--surface-2); border: 1px solid var(--border); border-radius: 12px; padding: 24px; }
+        .arch-mini-row { background: var(--surface-3); border-radius: 8px; padding: 16px; margin-bottom: 8px; }
+        .arch-mini-row.layers { background: linear-gradient(135deg, var(--surface-3) 0%, var(--surface-4) 100%); border: 1px solid var(--accent); }
+        .arch-mini-label { font-family: 'JetBrains Mono', monospace; font-size: 0.55rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 10px; text-align: center; }
+        .arch-mini-items { display: flex; justify-content: center; gap: 12px; }
+        .arch-mini-items span { font-size: 0.75rem; color: var(--text-muted); padding: 4px 10px; background: var(--surface-4); border-radius: 4px; }
+        .arch-mini-boxes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+        .arch-box { background: var(--surface-4); border-radius: 6px; padding: 10px 8px; text-align: center; }
+        .arch-box-title { font-size: 0.75rem; font-weight: 600; color: var(--text); margin-bottom: 2px; }
+        .arch-box-sub { font-size: 0.6rem; color: var(--text-dim); }
+        .arch-mini-dots { display: flex; justify-content: center; gap: 6px; flex-wrap: wrap; }
+        .arch-mini-dots span { width: 28px; height: 28px; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; font-weight: 600; color: var(--bg); }
+        .arch-mini-sub { text-align: center; font-size: 0.65rem; color: var(--text-muted); margin-top: 8px; }
+        .arch-mini-arrow { text-align: center; font-size: 0.7rem; color: var(--text-dim); padding: 6px 0; }
         
         /* SECTIONS */
         section { padding: 100px 0; }
-        .section-header { text-align: center; margin-bottom: 56px; }
-        .section-label { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
-        .section-title { font-size: clamp(1.75rem, 4vw, 2.5rem); font-weight: 800; letter-spacing: -0.02em; margin-bottom: 12px; }
-        .section-subtitle { font-size: 1.05rem; color: var(--text-muted); max-width: 550px; margin: 0 auto; }
+        .section-header { text-align: center; margin-bottom: 48px; }
+        .section-label { font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
+        .section-title { font-size: clamp(1.4rem, 3vw, 1.8rem); font-weight: 700; letter-spacing: -0.02em; margin-bottom: 10px; }
+        .section-subtitle { font-size: 0.95rem; color: var(--text-muted); max-width: 550px; margin: 0 auto; }
         
         /* WIZARD */
-        .wizard-section { padding: 80px 0; }
-        .wizard-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; max-width: 1000px; margin: 0 auto; }
-        .wizard-card { background: var(--surface-2); border: 2px solid var(--border); border-radius: 10px; padding: 24px 20px; cursor: pointer; transition: all 0.25s ease; text-align: center; }
-        .wizard-card:hover { border-color: var(--accent); transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,255,148,0.1); }
+        .wizard-section { padding: 60px 0; }
+        .wizard-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; max-width: 950px; margin: 0 auto; }
+        .wizard-card { background: var(--surface-2); border: 2px solid var(--border); border-radius: 8px; padding: 18px 14px; cursor: pointer; transition: all 0.25s ease; text-align: center; }
+        .wizard-card:hover { border-color: var(--accent); transform: translateY(-3px); box-shadow: 0 10px 28px rgba(0,255,148,0.1); }
         .wizard-card.active { border-color: var(--accent); background: var(--accent-dim); }
         .wizard-card.reset { background: var(--surface-3); border-style: dashed; }
         .wizard-card.reset:hover { border-color: var(--text-muted); }
-        .wizard-icon { font-size: 2rem; margin-bottom: 12px; }
-        .wizard-title { font-size: 1rem; font-weight: 700; margin-bottom: 6px; }
-        .wizard-desc { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 10px; }
-        .wizard-layers { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--accent); }
+        .wizard-icon { font-size: 1.6rem; margin-bottom: 8px; }
+        .wizard-title { font-size: 0.85rem; font-weight: 700; margin-bottom: 4px; }
+        .wizard-desc { font-size: 0.7rem; color: var(--text-muted); margin-bottom: 8px; }
+        .wizard-layers { font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; color: var(--accent); }
         
         .active-filter { display: flex; align-items: center; justify-content: center; gap: 12px; margin-top: 32px; padding: 12px 20px; background: var(--accent-dim); border: 1px solid var(--accent); border-radius: 8px; max-width: 400px; margin-left: auto; margin-right: auto; }
         .filter-label { font-size: 0.8rem; color: var(--text-muted); }
@@ -121,6 +136,29 @@
         /* Layer highlighting when filter active */
         .layer.dimmed { opacity: 0.3; transform: scale(0.98); }
         .layer.highlighted { border: 2px solid var(--accent); box-shadow: 0 0 20px rgba(0,255,148,0.2); }
+        
+        /* FULL PICTURE */
+        .fullpicture-section { padding: 80px 0; background: var(--bg); }
+        .architecture-visual { max-width: 900px; margin: 0 auto; }
+        .arch-row { background: var(--surface-2); border: 1px solid var(--border); border-radius: 10px; padding: 24px; margin-bottom: 8px; }
+        .arch-label { font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 16px; text-align: center; }
+        .arch-personas { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+        .persona-box { background: var(--surface-3); border: 1px solid var(--border); border-radius: 8px; padding: 16px; text-align: center; }
+        .persona-title { font-weight: 700; font-size: 0.95rem; margin-bottom: 6px; }
+        .persona-items { font-size: 0.75rem; color: var(--text-muted); }
+        .arch-arrow { text-align: center; padding: 12px 0; font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--text-dim); }
+        .layers-row { background: linear-gradient(135deg, var(--surface-2) 0%, var(--surface-3) 100%); border-color: var(--accent); }
+        .arch-layers-preview { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; margin-bottom: 12px; }
+        .layer-dot { width: 36px; height: 36px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; font-weight: 600; color: var(--bg); }
+        .arch-layers-desc { text-align: center; font-size: 0.8rem; color: var(--text-muted); }
+        .arch-backbone { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+        .backbone-col { background: var(--surface-3); border: 1px solid var(--border); border-radius: 8px; padding: 20px; text-align: center; }
+        .backbone-col.highlight { border-color: var(--accent); background: var(--accent-dim); }
+        .backbone-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 4px; }
+        .backbone-subtitle { font-size: 0.75rem; color: var(--accent); margin-bottom: 10px; font-style: italic; }
+        .backbone-items { font-size: 0.75rem; color: var(--text-muted); line-height: 1.6; }
+        .arch-insight { text-align: center; margin-top: 32px; font-size: 0.9rem; color: var(--text-muted); max-width: 700px; margin-left: auto; margin-right: auto; padding: 20px; background: var(--surface-2); border-radius: 8px; border-left: 3px solid var(--accent); }
+        .arch-insight strong { color: var(--accent); }
         
         /* FRAMEWORK */
         .framework-section { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 60px 0; }
@@ -208,10 +246,31 @@
         .usecase-example-stack { font-size: 0.7rem; color: var(--text); font-weight: 500; }
         .usecase-example-stack .arrow { color: var(--uc-color); margin: 0 5px; }
         
+        /* OPERATIONAL BACKBONE */
+        .backbone-section { padding: 80px 0; background: linear-gradient(180deg, var(--bg) 0%, var(--surface) 100%); }
+        .backbone-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 32px; }
+        .backbone-card { background: var(--surface-2); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+        .backbone-card.featured { border-color: var(--accent); background: linear-gradient(135deg, var(--accent-dim) 0%, var(--surface-2) 100%); }
+        .backbone-card-header { padding: 24px 20px 16px; text-align: center; border-bottom: 1px solid var(--border); }
+        .backbone-icon { font-size: 2rem; margin-bottom: 8px; }
+        .backbone-card-title { font-family: 'JetBrains Mono', monospace; font-size: 0.9rem; font-weight: 700; letter-spacing: 0.1em; margin-bottom: 4px; }
+        .backbone-card.featured .backbone-card-title { color: var(--accent); }
+        .backbone-card-question { font-size: 0.8rem; color: var(--text-muted); font-style: italic; }
+        .backbone-card-content { padding: 20px; }
+        .backbone-needs { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
+        .backbone-needs span { font-size: 0.7rem; padding: 4px 10px; background: var(--surface-4); border-radius: 4px; color: var(--text-muted); }
+        .backbone-providers { display: flex; flex-direction: column; gap: 10px; }
+        .backbone-provider { font-size: 0.8rem; color: var(--text-muted); line-height: 1.5; }
+        .backbone-provider strong { color: var(--text); }
+        .backbone-provider.featured { padding: 12px; background: var(--surface-3); border-radius: 6px; border-left: 3px solid var(--accent); }
+        .backbone-provider.featured strong { color: var(--accent); }
+        .backbone-insight { text-align: center; font-size: 0.9rem; color: var(--text-muted); padding: 20px; background: var(--surface-2); border-radius: 8px; border-left: 3px solid var(--accent); max-width: 800px; margin: 0 auto; }
+        .backbone-insight strong { color: var(--accent); }
+        
         /* ARCHETYPES */
-        .archetypes-section { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 80px 0; }
-        .archetype-container { display: flex; flex-direction: column; gap: 12px; }
-        .archetype { background: var(--surface-2); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; transition: all 0.3s; }
+        .archetypes-section { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 60px 0; }
+        .archetype-container { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+        .archetype { background: var(--surface-2); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; transition: all 0.3s; }
         .archetype:hover { border-color: var(--arch-color); }
         .archetype[data-arch="marketplace"] { --arch-color: var(--l-money); }
         .archetype[data-arch="payfac"] { --arch-color: var(--l-process); }
@@ -219,17 +278,17 @@
         .archetype[data-arch="fintech"] { --arch-color: var(--l-ledger); }
         .archetype[data-arch="payouts"] { --arch-color: var(--l-accept); }
         .archetype[data-arch="crypto"] { --arch-color: var(--l-crypto); }
-        .archetype-header { padding: 20px 24px; cursor: pointer; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid transparent; }
+        .archetype-header { padding: 16px 20px; cursor: pointer; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid transparent; border-left: 3px solid var(--arch-color); }
         .archetype.expanded .archetype-header { border-bottom-color: var(--border); }
-        .archetype-header-left { display: flex; align-items: center; gap: 14px; }
-        .archetype-icon { font-size: 1.4rem; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; background: var(--surface-3); border-radius: 8px; }
-        .archetype-title { font-size: 1rem; font-weight: 700; }
-        .archetype-subtitle { font-size: 0.75rem; color: var(--text-muted); margin-top: 2px; }
-        .archetype-toggle { font-size: 1rem; color: var(--text-dim); transition: transform 0.3s; }
+        .archetype-header-left { display: flex; align-items: center; gap: 12px; }
+        .archetype-icon { font-size: 1.2rem; width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; background: var(--surface-3); border-radius: 6px; }
+        .archetype-title { font-size: 0.9rem; font-weight: 700; }
+        .archetype-subtitle { font-size: 0.7rem; color: var(--text-muted); margin-top: 2px; }
+        .archetype-toggle { font-size: 0.8rem; color: var(--text-dim); transition: transform 0.3s; }
         .archetype.expanded .archetype-toggle { transform: rotate(180deg); }
-        .archetype-body { display: none; padding: 20px 24px; }
+        .archetype-body { display: none; padding: 16px 20px; }
         .archetype.expanded .archetype-body { display: block; }
-        .archetype-question { font-size: 0.95rem; font-weight: 700; color: var(--arch-color); margin-bottom: 14px; }
+        .archetype-question { font-size: 0.85rem; font-weight: 700; color: var(--arch-color); margin-bottom: 12px; }
         .depth-spectrum { display: flex; gap: 0; margin-bottom: 16px; }
         .depth-option { flex: 1; padding: 14px 16px; background: var(--surface-3); border: 1px solid var(--border); position: relative; }
         .depth-option:first-child { border-radius: 6px 0 0 6px; }
@@ -285,21 +344,39 @@
         .case-layers { display: flex; gap: 4px; }
         .case-dot { width: 10px; height: 10px; border-radius: 2px; }
         
+        /* Backbone note */
+        .backbone-note { font-size: 0.7rem; color: var(--text-dim); font-style: italic; margin-top: 12px; padding-top: 10px; border-top: 1px dashed var(--border); }
+        .backbone-subgroup { margin-top: 12px; padding-top: 10px; border-top: 1px dashed var(--border); }
+        .backbone-subgroup-label { font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; color: var(--accent); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px; }
+        
         /* RESPONSIVE */
         @media (max-width: 1000px) {
+            .hero-container { grid-template-columns: 1fr; gap: 40px; text-align: center; }
+            .hero-left { order: 1; }
+            .hero-right { order: 2; }
+            .hero-cta { justify-content: center; }
+            .hero-sub { margin-left: auto; margin-right: auto; }
             .layer { grid-template-columns: 40px 150px 1fr 110px; }
             .depth-spectrum { flex-wrap: wrap; }
             .depth-option { flex: 1 1 45%; border-radius: 6px !important; margin: 3px; border: 1px solid var(--border) !important; }
             .about-grid { grid-template-columns: 1fr; }
             .wizard-grid { grid-template-columns: repeat(2, 1fr); }
+            .arch-personas { grid-template-columns: 1fr; }
+            .arch-backbone { grid-template-columns: 1fr; }
+            .backbone-grid { grid-template-columns: 1fr; }
+            .archetype-container { grid-template-columns: 1fr; }
         }
         @media (max-width: 700px) {
             .container { padding: 0 16px; }
             section { padding: 60px 0; }
+            .hero { padding: 40px 16px; }
             .hero h1 { font-size: 1.8rem; }
             .hero-tagline { font-size: 1rem; }
             .hero-cta { flex-direction: column; align-items: center; }
             .btn { width: 100%; max-width: 280px; justify-content: center; }
+            .arch-mini { padding: 16px; }
+            .arch-mini-boxes { grid-template-columns: 1fr; gap: 6px; }
+            .arch-mini-dots span { width: 24px; height: 24px; font-size: 0.5rem; }
             .layer { grid-template-columns: 1fr; border-radius: 8px; }
             .layer-depth { writing-mode: horizontal-tb; transform: none; padding: 8px 14px; justify-content: flex-start; gap: 8px; }
             .layer-depth::after { content: attr(data-name); font-size: 0.75rem; }
@@ -316,25 +393,86 @@
             .wizard-grid { grid-template-columns: 1fr; gap: 12px; }
             .wizard-card { padding: 16px; }
             .wizard-icon { font-size: 1.5rem; }
+            .arch-layers-preview { gap: 4px; }
+            .layer-dot { width: 28px; height: 28px; font-size: 0.5rem; }
+            .backbone-card-content { padding: 16px; }
         }
     </style>
 </head>
 <body>
 
 <!-- ===== HERO ===== -->
-<section class="hero">
-    <div class="hero-content">
-        <div class="logo">stacks<span class="dot">.</span>build</div>
-        <h1>Build, Own, Scale.<br><span class="accent">Don't Rent.</span></h1>
-        <p class="hero-tagline">Merchant payment infrastructure intel — no fuzz, no buzz</p>
-        <p class="hero-sub">A whiteboard for payment leaders. 18 layers, 100+ providers, real trade-offs. Built from years inside the stack, not from vendor decks.</p>
+<section class="hero hero-split">
+    <div class="hero-container">
+        <div class="hero-left">
+            <div class="logo">stacks<span class="dot">.</span>build</div>
+            <h1>Build, Own, Scale.<br><span class="accent">Don't Rent.</span></h1>
+            <p class="hero-tagline">Payment infrastructure intel for merchants, SaaS & fintechs</p>
+            <p class="hero-sub">18 layers. 150+ providers. Real trade-offs. Built from years inside the stack, not from vendor decks.</p>
+            
+            <div class="hero-cta">
+                <a href="#wizard" class="btn btn-primary">What's Your Goal?</a>
+                <a href="#framework" class="btn btn-secondary">18 Layers</a>
+                <a href="#archetypes" class="btn btn-tertiary">Who Are You?</a>
+            </div>
+        </div>
         
-        <div class="hero-cta">
-            <a href="#wizard" class="btn btn-primary">Start With Your Goal ↓</a>
-            <a href="#framework" class="btn btn-secondary">Jump to 18 Layers</a>
+        <div class="hero-right">
+            <div class="arch-mini">
+                <div class="arch-mini-row front">
+                    <div class="arch-mini-label">FRONT SYSTEMS</div>
+                    <div class="arch-mini-boxes">
+                        <div class="arch-box">
+                            <div class="arch-box-title">Merchant</div>
+                            <div class="arch-box-sub">CMS · OMS · POS · ERP</div>
+                        </div>
+                        <div class="arch-box">
+                            <div class="arch-box-title">Vertical SaaS</div>
+                            <div class="arch-box-sub">Your Platform · Client App</div>
+                        </div>
+                        <div class="arch-box">
+                            <div class="arch-box-title">Marketplace</div>
+                            <div class="arch-box-sub">Platform · Seller Portal</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="arch-mini-arrow">↓ Triggers Payment</div>
+                <div class="arch-mini-row layers">
+                    <div class="arch-mini-label">PAYMENT LAYERS</div>
+                    <div class="arch-mini-dots">
+                        <span style="background: var(--l-psp);">0</span>
+                        <span style="background: var(--l-risk);">3</span>
+                        <span style="background: var(--l-route);">4</span>
+                        <span style="background: var(--l-process);">5</span>
+                        <span style="background: var(--l-vault);">6</span>
+                        <span style="background: var(--l-ledger);">7</span>
+                        <span style="background: var(--l-data);">8</span>
+                        <span style="background: var(--l-crypto);">10</span>
+                        <span style="background: var(--l-agent);">11</span>
+                    </div>
+                    <div class="arch-mini-sub">18 layers · Money flow · Your infrastructure choices</div>
+                </div>
+                <div class="arch-mini-arrow">↓ Generates Data</div>
+                <div class="arch-mini-row backbone">
+                    <div class="arch-mini-label">OPERATIONAL BACKBONE</div>
+                    <div class="arch-mini-boxes">
+                        <div class="arch-box">
+                            <div class="arch-box-title">📊 Data</div>
+                            <div class="arch-box-sub">What happened?</div>
+                        </div>
+                        <div class="arch-box">
+                            <div class="arch-box-title">⚙️ Admin</div>
+                            <div class="arch-box-sub">Let me manage it</div>
+                        </div>
+                        <div class="arch-box">
+                            <div class="arch-box-title">🔄 Process</div>
+                            <div class="arch-box-sub">Automate it</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-    <a href="#wizard" class="scroll-hint"><span>scroll</span><span class="arrow">↓</span></a>
 </section>
 
 <!-- ===== USE CASE WIZARD ===== -->
@@ -371,11 +509,17 @@
                 <div class="wizard-desc">Cards, wallets, accounts, stablecoins</div>
                 <div class="wizard-layers">L7 → L10.1</div>
             </div>
+            <div class="wizard-card" data-usecase="ledger" onclick="activateUseCase('ledger')">
+                <div class="wizard-icon">📒</div>
+                <div class="wizard-title">Own Your Ledger</div>
+                <div class="wizard-desc">Real-time balances, multi-currency, crypto</div>
+                <div class="wizard-layers">L7 → L10</div>
+            </div>
             <div class="wizard-card" data-usecase="compliance" onclick="activateUseCase('compliance')">
                 <div class="wizard-icon">🛡️</div>
                 <div class="wizard-title">Own Your Compliance</div>
-                <div class="wizard-desc">Licensed entity, own KYC</div>
-                <div class="wizard-layers">L3 → L7</div>
+                <div class="wizard-desc">DORA, MiCA, PSD2/PSD3, NIS2</div>
+                <div class="wizard-layers">L3 → L7 → L10 → Backbone</div>
             </div>
             <div class="wizard-card" data-usecase="rails" onclick="activateUseCase('rails')">
                 <div class="wizard-icon">🚀</div>
@@ -449,12 +593,12 @@
             <!-- L0.1 - MOR & PayFac -->
             <div class="layer" data-layer="mor" onclick="toggleLayer(this)">
                 <div class="layer-depth" data-name="MOR & PayFac">L0.1</div>
-                <div class="layer-title"><div class="layer-name">MOR & PayFac</div><div class="layer-sub">Full liability outsource</div></div>
+                <div class="layer-title"><div class="layer-name">MOR, PayFac & Cross-Border</div><div class="layer-sub">Full liability outsource</div></div>
                 <div class="layer-content">
                     <div class="block active" data-filter="all" onclick="filterProviders(event, this)">All<span class="desc">Show all</span></div>
                     <div class="block" data-filter="mor" onclick="filterProviders(event, this)">MOR<span class="desc">Merchant of Record</span></div>
-                    <div class="block" data-filter="payfac" onclick="filterProviders(event, this)">PayFac<span class="desc">Embedded payments</span></div>
-                    <div class="block" data-filter="crypto" onclick="filterProviders(event, this)">Crypto MOR<span class="desc">Stablecoin + tax</span></div>
+                    <div class="block" data-filter="crossborder" onclick="filterProviders(event, this)">Cross-Border<span class="desc">International DTC</span></div>
+                    <div class="block" data-filter="payfac" onclick="filterProviders(event, this)">PayFac<span class="desc">Embedded</span></div>
                 </div>
                 <div class="layer-value"><div class="layer-output">Zero Liability</div><div class="layer-output-sub">they own risk</div></div>
                 <div class="layer-details">
@@ -464,7 +608,9 @@
                         <div class="provider-card" data-tags="mor"><div class="provider-name">Digital River</div><div class="provider-desc">Enterprise MOR. 200+ countries tax handling.</div></div>
                         <div class="provider-card" data-tags="mor"><div class="provider-name">2Checkout / Verifone</div><div class="provider-desc">MOR + subscription billing.</div></div>
                         <div class="provider-card" data-tags="mor"><div class="provider-name">LemonSqueezy</div><div class="provider-desc">MOR for creators, indie devs. Simple.</div></div>
-                        <div class="provider-card" data-tags="crypto"><div class="provider-name">Breeze <span class="badge hot">HOT</span></div><div class="provider-desc">Crypto MOR. Stablecoin + tax compliance.</div></div>
+                        <div class="provider-card" data-tags="crossborder"><div class="provider-name">Global-e <span class="badge hot">HOT</span></div><div class="provider-desc">Cross-border DTC. Duties, taxes, localized checkout. Powers Adidas, LVMH.</div></div>
+                        <div class="provider-card" data-tags="crossborder"><div class="provider-name">Zonos</div><div class="provider-desc">Landed cost calculator. Duties + taxes at checkout.</div></div>
+                        <div class="provider-card" data-tags="crossborder"><div class="provider-name">Flow Commerce</div><div class="provider-desc">Cross-border platform. Shopify Plus partner.</div></div>
                         <div class="provider-card" data-tags="payfac"><div class="provider-name">Stripe Connect</div><div class="provider-desc">Marketplace PayFac. Stripe Tax for compliance. 40+ countries.</div></div>
                         <div class="provider-card" data-tags="payfac"><div class="provider-name">Nuvei</div><div class="provider-desc">PayFac enabler. Global acquiring.</div></div>
                         <div class="provider-card" data-tags="payfac"><div class="provider-name">Shift4</div><div class="provider-desc">PayFac. Strong hospitality, restaurants.</div></div>
@@ -494,6 +640,12 @@
                         <div class="provider-card" data-tags="global,eu"><div class="provider-name">J.P. Morgan Payments</div><div class="provider-desc">#1 CNP acquirer in EU. Bank-grade.</div></div>
                         <div class="provider-card" data-tags="eu"><div class="provider-name">Nexi <span class="badge eu">EU</span></div><div class="provider-desc">Italy, Nordics, DACH. Post-Nets merger.</div></div>
                         <div class="provider-card" data-tags="eu"><div class="provider-name">PayPlug <span class="badge eu">EU</span></div><div class="provider-desc">France SMB. BPCE Group. Growing fast.</div></div>
+                        <div class="provider-card" data-tags="eu"><div class="provider-name">Revolut Business <span class="badge new">NEW</span></div><div class="provider-desc">EU acquiring live. Fast onboarding. Growing merchant base.</div></div>
+                        <div class="provider-card" data-tags="eu"><div class="provider-name">SumUp</div><div class="provider-desc">SMB acquiring + terminals. 4M+ merchants.</div></div>
+                        <div class="provider-card" data-tags="eu"><div class="provider-name">Dojo <span class="badge eu">EU</span></div><div class="provider-desc">UK SMB acquirer. Paymentsense rebrand. Fast growth.</div></div>
+                        <div class="provider-card" data-tags="eu"><div class="provider-name">myPOS <span class="badge eu">EU</span></div><div class="provider-desc">EU SMB. Instant settlement. Integrated terminals.</div></div>
+                        <div class="provider-card" data-tags="eu"><div class="provider-name">HiPay <span class="badge eu">EU</span></div><div class="provider-desc">France/EU mid-market. Omnichannel. Gaming strong.</div></div>
+                        <div class="provider-card" data-tags="global"><div class="provider-name">Clover (Fiserv)</div><div class="provider-desc">SMB platform. POS + acquiring. US dominant.</div></div>
                         <div class="provider-card" data-tags="emerging"><div class="provider-name">dLocal</div><div class="provider-desc">LatAm & Africa specialist. Emerging markets.</div></div>
                         <div class="provider-card" data-tags="emerging"><div class="provider-name">Mercado Pago</div><div class="provider-desc">LatAm dominant. 50M+ users.</div></div>
                         <div class="provider-card" data-tags="emerging"><div class="provider-name">Razorpay</div><div class="provider-desc">India leader. $7.5B valuation.</div></div>
@@ -510,23 +662,28 @@
                 <div class="layer-title"><div class="layer-name">Capture</div><div class="layer-sub">Customer touchpoint</div></div>
                 <div class="layer-content">
                     <div class="block active" data-filter="all" onclick="filterProviders(event, this)">All<span class="desc">Show all</span></div>
-                    <div class="block" data-filter="online" onclick="filterProviders(event, this)">Online<span class="desc">E-commerce checkout</span></div>
-                    <div class="block" data-filter="pos" onclick="filterProviders(event, this)">POS / Terminal<span class="desc">Physical retail</span></div>
-                    <div class="block" data-filter="table" onclick="filterProviders(event, this)">Pay-at-Table<span class="desc">Hospitality QR</span></div>
+                    <div class="block" data-filter="online" onclick="filterProviders(event, this)">Online<span class="desc">Checkout</span></div>
+                    <div class="block" data-filter="pos" onclick="filterProviders(event, this)">POS Software<span class="desc">Omnichannel</span></div>
+                    <div class="block" data-filter="hardware" onclick="filterProviders(event, this)">Hardware<span class="desc">Terminals</span></div>
+                    <div class="block" data-filter="table" onclick="filterProviders(event, this)">Pay-at-Table<span class="desc">Hospitality</span></div>
                 </div>
                 <div class="layer-value"><div class="layer-output">UX Control</div><div class="layer-output-sub">own experience</div></div>
                 <div class="layer-details">
                     <div class="providers-grid">
                         <div class="provider-card" data-tags="online"><div class="provider-name">Build in-house</div><div class="provider-desc">Full checkout control. Max flexibility.</div></div>
                         <div class="provider-card" data-tags="online"><div class="provider-name">Bold Commerce</div><div class="provider-desc">Headless checkout. Shopify Plus partner.</div></div>
+                        <div class="provider-card" data-tags="online"><div class="provider-name">Fast (Affirm)</div><div class="provider-desc">One-click checkout. Acquired by Affirm.</div></div>
+                        <div class="provider-card" data-tags="online"><div class="provider-name">Bolt</div><div class="provider-desc">One-click checkout network. 80M shoppers.</div></div>
                         <div class="provider-card" data-tags="pos"><div class="provider-name">Nepting <span class="badge eu">EU</span></div><div class="provider-desc">Multi-acquirer POS. Nexo standard. EU leader.</div></div>
                         <div class="provider-card" data-tags="pos"><div class="provider-name">FreedomPay</div><div class="provider-desc">Enterprise POS. Hospitality, retail.</div></div>
                         <div class="provider-card" data-tags="pos,online"><div class="provider-name">ACI Worldwide</div><div class="provider-desc">Omnichannel. Real-time payments.</div></div>
-                        <div class="provider-card" data-tags="pos"><div class="provider-name">PAX Technology</div><div class="provider-desc">Android terminals. Global #2 in hardware.</div></div>
-                        <div class="provider-card" data-tags="pos"><div class="provider-name">Ingenico</div><div class="provider-desc">AXIUM terminals. Enterprise grade.</div></div>
-                        <div class="provider-card" data-tags="pos"><div class="provider-name">Verifone</div><div class="provider-desc">Terminals + cloud software.</div></div>
-                        <div class="provider-card" data-tags="pos"><div class="provider-name">Tap to Pay (Apple/Google)</div><div class="provider-desc">SoftPOS. Phone becomes terminal.</div></div>
-                        <div class="provider-card" data-tags="pos"><div class="provider-name">Dejamobile</div><div class="provider-desc">SoftPOS SDK. White-label tap-to-pay.</div></div>
+                        <div class="provider-card" data-tags="pos"><div class="provider-name">Lightspeed</div><div class="provider-desc">SMB POS platform. Retail + hospitality.</div></div>
+                        <div class="provider-card" data-tags="hardware"><div class="provider-name">PAX Technology</div><div class="provider-desc">Android terminals. Global #2 in hardware.</div></div>
+                        <div class="provider-card" data-tags="hardware"><div class="provider-name">Ingenico</div><div class="provider-desc">AXIUM terminals. Enterprise grade.</div></div>
+                        <div class="provider-card" data-tags="hardware"><div class="provider-name">Verifone</div><div class="provider-desc">Terminals + cloud software.</div></div>
+                        <div class="provider-card" data-tags="hardware"><div class="provider-name">Castles Technology</div><div class="provider-desc">Android terminals. Asia + EU presence.</div></div>
+                        <div class="provider-card" data-tags="pos,hardware"><div class="provider-name">Tap to Pay (Apple/Google)</div><div class="provider-desc">SoftPOS. Phone becomes terminal.</div></div>
+                        <div class="provider-card" data-tags="pos,hardware"><div class="provider-name">Dejamobile</div><div class="provider-desc">SoftPOS SDK. White-label tap-to-pay.</div></div>
                         <div class="provider-card" data-tags="table"><div class="provider-name">Sunday <span class="badge hot">HOT</span></div><div class="provider-desc">Pay-at-table leader. 10K+ restaurants.</div></div>
                         <div class="provider-card" data-tags="table"><div class="provider-name">Obypay <span class="badge eu">EU</span></div><div class="provider-desc">France. QR order + pay.</div></div>
                         <div class="provider-card" data-tags="table"><div class="provider-name">QikServe</div><div class="provider-desc">UK. Acquired by Access Group.</div></div>
@@ -542,13 +699,27 @@
                 <div class="layer-content">
                     <div class="block active" data-filter="all" onclick="filterProviders(event, this)">All<span class="desc">Show all</span></div>
                     <div class="block" data-filter="apm" onclick="filterProviders(event, this)">Local APMs<span class="desc">iDEAL, BLIK, etc.</span></div>
+                    <div class="block" data-filter="bnpl" onclick="filterProviders(event, this)">BNPL<span class="desc">Buy Now Pay Later</span></div>
                     <div class="block" data-filter="a2a" onclick="filterProviders(event, this)">A2A / Open Banking<span class="desc">Bank transfers</span></div>
                     <div class="block" data-filter="crypto" onclick="filterProviders(event, this)">Crypto<span class="desc">Stablecoin accept</span></div>
                 </div>
                 <div class="layer-value"><div class="layer-output">Coverage</div><div class="layer-output-sub">local methods</div></div>
                 <div class="layer-details">
                     <div class="providers-grid">
-                        <div class="provider-card" data-tags="apm"><div class="provider-name">PPRO</div><div class="provider-desc">175+ local APMs. BNPL. Global coverage.</div></div>
+                        <div class="provider-card" data-tags="apm"><div class="provider-name">PPRO</div><div class="provider-desc">175+ local APMs. Global coverage.</div></div>
+                        <div class="provider-card" data-tags="apm"><div class="provider-name">iDEAL (NL)</div><div class="provider-desc">Netherlands. 70%+ online share. Bank redirect.</div></div>
+                        <div class="provider-card" data-tags="apm"><div class="provider-name">BLIK (PL)</div><div class="provider-desc">Poland. 80M+ txn/month. Mobile-first.</div></div>
+                        <div class="provider-card" data-tags="apm"><div class="provider-name">Bancontact (BE)</div><div class="provider-desc">Belgium. 85% card market. Payconiq merger.</div></div>
+                        <div class="provider-card" data-tags="apm"><div class="provider-name">Bizum (ES)</div><div class="provider-desc">Spain. 28M users. Bank consortium P2P.</div></div>
+                        <div class="provider-card" data-tags="apm"><div class="provider-name">MB Way (PT)</div><div class="provider-desc">Portugal. 5M users. Mobile payments.</div></div>
+                        <div class="provider-card" data-tags="apm"><div class="provider-name">Swish (SE)</div><div class="provider-desc">Sweden. 8M users. Bank consortium.</div></div>
+                        <div class="provider-card" data-tags="bnpl"><div class="provider-name">Klarna <span class="badge hot">HOT</span></div><div class="provider-desc">Global BNPL leader. $6.7B valuation. Banking license.</div></div>
+                        <div class="provider-card" data-tags="bnpl"><div class="provider-name">Affirm</div><div class="provider-desc">US BNPL. Public company. Amazon partner.</div></div>
+                        <div class="provider-card" data-tags="bnpl"><div class="provider-name">Afterpay (Block)</div><div class="provider-desc">APAC/US BNPL. Acquired by Block $29B.</div></div>
+                        <div class="provider-card" data-tags="bnpl"><div class="provider-name">Alma <span class="badge eu">EU</span></div><div class="provider-desc">France BNPL leader. €490M raised.</div></div>
+                        <div class="provider-card" data-tags="bnpl"><div class="provider-name">Scalapay <span class="badge eu">EU</span></div><div class="provider-desc">Southern EU. Fashion focus. €700M+ raised.</div></div>
+                        <div class="provider-card" data-tags="bnpl"><div class="provider-name">Oney (BPCE)</div><div class="provider-desc">France. Bank-backed BNPL. Retail partnerships.</div></div>
+                        <div class="provider-card" data-tags="bnpl"><div class="provider-name">Billie <span class="badge eu">EU</span></div><div class="provider-desc">B2B BNPL. Germany. €100M+ raised.</div></div>
                         <div class="provider-card" data-tags="a2a"><div class="provider-name">Wero / EPI <span class="badge hot">HOT</span></div><div class="provider-desc">EU instant A2A. Bank consortium. Replacing cards?</div></div>
                         <div class="provider-card" data-tags="a2a"><div class="provider-name">Token.io</div><div class="provider-desc">A2A payments. Open banking connectivity.</div></div>
                         <div class="provider-card" data-tags="a2a"><div class="provider-name">TrueLayer</div><div class="provider-desc">UK/EU open banking. VRP support.</div></div>
@@ -564,13 +735,15 @@
             
             <!-- L3 - Risk -->
             <div class="layer" data-layer="risk" data-usecases="data,compliance" onclick="toggleLayer(this)">
-                <div class="layer-depth" data-name="Risk & Compliance">L3</div>
-                <div class="layer-title"><div class="layer-name">Risk & Compliance</div><div class="layer-sub">Fraud, Identity, AML</div></div>
+                <div class="layer-depth" data-name="Risk, Identity & Compliance">L3</div>
+                <div class="layer-title"><div class="layer-name">Risk, Identity & Compliance</div><div class="layer-sub">Fraud, Auth, KYC, Disputes</div></div>
                 <div class="layer-content">
                     <div class="block active" data-filter="all" onclick="filterProviders(event, this)">All<span class="desc">Show all</span></div>
-                    <div class="block" data-filter="fraud" onclick="filterProviders(event, this)">Fraud<span class="desc">ML + chargeback</span></div>
-                    <div class="block" data-filter="kyc" onclick="filterProviders(event, this)">KYC / KYB<span class="desc">Identity verification</span></div>
-                    <div class="block" data-filter="aml" onclick="filterProviders(event, this)">AML<span class="desc">Sanctions, crypto</span></div>
+                    <div class="block" data-filter="fraud" onclick="filterProviders(event, this)">Fraud<span class="desc">ML + guarantee</span></div>
+                    <div class="block" data-filter="identity" onclick="filterProviders(event, this)">Identity<span class="desc">Auth + verification</span></div>
+                    <div class="block" data-filter="kyc" onclick="filterProviders(event, this)">KYC / KYB<span class="desc">Onboarding</span></div>
+                    <div class="block" data-filter="disputes" onclick="filterProviders(event, this)">Disputes<span class="desc">Chargebacks</span></div>
+                    <div class="block" data-filter="aml" onclick="filterProviders(event, this)">AML<span class="desc">Sanctions</span></div>
                 </div>
                 <div class="layer-value"><div class="layer-output">Own Risk</div><div class="layer-output-sub">or outsource</div></div>
                 <div class="layer-details">
@@ -583,10 +756,18 @@
                         <div class="provider-card" data-tags="fraud"><div class="provider-name">Forter</div><div class="provider-desc">Guaranteed fraud protection. Banks + merchants.</div></div>
                         <div class="provider-card" data-tags="fraud"><div class="provider-name">Riskified</div><div class="provider-desc">Chargeback guarantee. Public company.</div></div>
                         <div class="provider-card" data-tags="fraud"><div class="provider-name">Feedzai</div><div class="provider-desc">Bank-grade ML. Enterprise fraud.</div></div>
+                        <div class="provider-card" data-tags="identity"><div class="provider-name">Stytch <span class="badge hot">HOT</span></div><div class="provider-desc">Passwordless auth. Passkeys. B2B auth. $1B+ valuation.</div></div>
+                        <div class="provider-card" data-tags="identity"><div class="provider-name">Passage (1Password)</div><div class="provider-desc">Passkeys-first. Acquired by 1Password.</div></div>
+                        <div class="provider-card" data-tags="identity"><div class="provider-name">Auth0 (Okta)</div><div class="provider-desc">Identity platform. Enterprise SSO. MFA.</div></div>
+                        <div class="provider-card" data-tags="identity"><div class="provider-name">Plaid Identity</div><div class="provider-desc">Bank account verification. Income + identity.</div></div>
                         <div class="provider-card" data-tags="kyc"><div class="provider-name">Stripe Identity</div><div class="provider-desc">Document + selfie verification. Built into Stripe.</div></div>
                         <div class="provider-card" data-tags="kyc"><div class="provider-name">Persona</div><div class="provider-desc">KYC/KYB flows. Identity verification.</div></div>
                         <div class="provider-card" data-tags="kyc"><div class="provider-name">Alloy</div><div class="provider-desc">Identity decisioning. Bank onboarding.</div></div>
                         <div class="provider-card" data-tags="kyc"><div class="provider-name">Onfido</div><div class="provider-desc">Document + biometric verification.</div></div>
+                        <div class="provider-card" data-tags="disputes"><div class="provider-name">Chargebacks911</div><div class="provider-desc">Chargeback prevention + management. ROI guarantee.</div></div>
+                        <div class="provider-card" data-tags="disputes"><div class="provider-name">Midigator</div><div class="provider-desc">Dispute management platform. Analytics.</div></div>
+                        <div class="provider-card" data-tags="disputes"><div class="provider-name">Verifi (Visa)</div><div class="provider-desc">Order Insight. CDRN alerts. Compelling Evidence 3.0.</div></div>
+                        <div class="provider-card" data-tags="disputes"><div class="provider-name">Ethoca (Mastercard)</div><div class="provider-desc">Consumer Clarity. Real-time alerts. Prevention.</div></div>
                         <div class="provider-card" data-tags="aml"><div class="provider-name">Chainalysis</div><div class="provider-desc">Crypto compliance. Blockchain analytics.</div></div>
                         <div class="provider-card" data-tags="aml"><div class="provider-name">ComplyAdvantage</div><div class="provider-desc">AML data. Sanctions screening.</div></div>
                     </div>
@@ -662,7 +843,7 @@
             </div>
             
             <!-- L7 - Ledger -->
-            <div class="layer" data-layer="ledger" data-usecases="products,compliance" onclick="toggleLayer(this)">
+            <div class="layer" data-layer="ledger" data-usecases="products,compliance,ledger" onclick="toggleLayer(this)">
                 <div class="layer-depth" data-name="Ledger, Accounts & Cards">L7</div>
                 <div class="layer-title"><div class="layer-name">Ledger, Accounts & Cards</div><div class="layer-sub">Own the financial products</div></div>
                 <div class="layer-content">
@@ -724,12 +905,12 @@
             <!-- L9 - Money Movement -->
             <div class="layer" data-layer="money" onclick="toggleLayer(this)">
                 <div class="layer-depth" data-name="Money Movement">L9</div>
-                <div class="layer-title"><div class="layer-name">Money Movement</div><div class="layer-sub">Splits, payouts, FX</div></div>
+                <div class="layer-title"><div class="layer-name">Money Movement</div><div class="layer-sub">Splits, payouts, cross-border</div></div>
                 <div class="layer-content">
                     <div class="block active" data-filter="all" onclick="filterProviders(event, this)">All<span class="desc">Show all</span></div>
-                    <div class="block" data-filter="marketplace" onclick="filterProviders(event, this)">Marketplace Splits<span class="desc">Multi-seller</span></div>
-                    <div class="block" data-filter="payout" onclick="filterProviders(event, this)">Global Payouts<span class="desc">Cross-border FX</span></div>
-                    <div class="block" data-filter="capital" onclick="filterProviders(event, this)">Embedded Capital<span class="desc">Lending API</span></div>
+                    <div class="block" data-filter="marketplace" onclick="filterProviders(event, this)">Marketplace<span class="desc">Multi-seller</span></div>
+                    <div class="block" data-filter="payout" onclick="filterProviders(event, this)">Payouts<span class="desc">Global FX</span></div>
+                    <div class="block" data-filter="capital" onclick="filterProviders(event, this)">Capital<span class="desc">Lending API</span></div>
                 </div>
                 <div class="layer-value"><div class="layer-output">Distribution</div><div class="layer-output-sub">your economics</div></div>
                 <div class="layer-details">
@@ -747,12 +928,12 @@
                 </div>
             </div>
             
-            <div class="layer-group-label">Crypto Infrastructure — Stablecoin & Digital Assets <span class="badge growing">GROWING</span></div>
+            <div class="layer-group-label">Crypto Infrastructure — MiCA Regulated <span class="badge growing">GROWING</span></div>
             
             <!-- L10.1 - Stablecoin Issuance -->
-            <div class="layer" data-layer="crypto-issue" data-usecases="products" onclick="toggleLayer(this)">
+            <div class="layer" data-layer="crypto-issue" data-usecases="products,ledger,compliance" onclick="toggleLayer(this)">
                 <div class="layer-depth" data-name="Issuance">L10.1</div>
-                <div class="layer-title"><div class="layer-name">Stablecoin Issuance</div><div class="layer-sub">Access or issue digital dollars</div></div>
+                <div class="layer-title"><div class="layer-name">Stablecoin Issuance</div><div class="layer-sub">MiCA: EMT/ART licensing</div></div>
                 <div class="layer-content">
                     <div class="block active" data-filter="all" onclick="filterProviders(event, this)">All<span class="desc">Show all</span></div>
                     <div class="block" data-filter="use" onclick="filterProviders(event, this)">Use Existing<span class="desc">USDC, USDT, PYUSD</span></div>
@@ -761,7 +942,7 @@
                 <div class="layer-value"><div class="layer-output">Digital $</div><div class="layer-output-sub">programmable money</div></div>
                 <div class="layer-details">
                     <div class="providers-grid">
-                        <div class="provider-card" data-tags="use"><div class="provider-name">Circle <span class="badge hot">HOT</span></div><div class="provider-desc">USDC issuer. $62B market cap. Enterprise API.</div></div>
+                        <div class="provider-card" data-tags="use"><div class="provider-name">Circle <span class="badge hot">HOT</span></div><div class="provider-desc">USDC issuer. MiCA compliant. $62B market cap.</div></div>
                         <div class="provider-card" data-tags="use,issue"><div class="provider-name">Paxos <span class="badge hot">HOT</span></div><div class="provider-desc">White-label stablecoins. Powers PayPal PYUSD.</div></div>
                         <div class="provider-card" data-tags="use"><div class="provider-name">Tether</div><div class="provider-desc">USDT. $155B market cap. Dominant in emerging markets.</div></div>
                         <div class="provider-card" data-tags="issue"><div class="provider-name">Breeze</div><div class="provider-desc">Stablecoin-as-a-Service. Issue your own.</div></div>
@@ -770,7 +951,7 @@
             </div>
             
             <!-- L10.2 - Custody & Wallets -->
-            <div class="layer" data-layer="crypto-custody" onclick="toggleLayer(this)">
+            <div class="layer" data-layer="crypto-custody" data-usecases="ledger,compliance" onclick="toggleLayer(this)">
                 <div class="layer-depth" data-name="Custody">L10.2</div>
                 <div class="layer-title"><div class="layer-name">Custody & Wallets</div><div class="layer-sub">Hold crypto assets securely</div></div>
                 <div class="layer-content">
@@ -886,8 +1067,103 @@
     </div>
 </section>
 
+<!-- ===== OPERATIONAL BACKBONE ===== -->
+<section id="backbone" class="backbone-section">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-label">Operational Backbone</div>
+            <h2 class="section-title">What Manages Your Stack</h2>
+            <p class="section-subtitle">When you unbundle from Stripe/Adyen, you lose their dashboard. You need to rebuild three things.</p>
+        </div>
+        
+        <div class="backbone-grid">
+            <!-- DATA Column -->
+            <div class="backbone-card">
+                <div class="backbone-card-header">
+                    <div class="backbone-icon">📊</div>
+                    <div class="backbone-card-title">DATA</div>
+                    <div class="backbone-card-question">What really happened?</div>
+                </div>
+                <div class="backbone-card-content">
+                    <div class="backbone-needs">
+                        <span>Raw decline codes</span>
+                        <span>Retry signals</span>
+                        <span>Settlement vs captured</span>
+                        <span>IC breakdown</span>
+                        <span>Audit trails</span>
+                    </div>
+                    <div class="backbone-providers">
+                        <div class="backbone-provider"><strong>Pagos</strong> — Payment intelligence, auth optimization</div>
+                        <div class="backbone-provider"><strong>dbt</strong> — Transform raw payment data</div>
+                        <div class="backbone-provider"><strong>Metabase</strong> — Open-source BI, self-hosted</div>
+                    </div>
+                    <div class="backbone-subgroup">
+                        <div class="backbone-subgroup-label">Compliance Automation (DORA, MiCA, PSD2/PSR)</div>
+                        <div class="backbone-provider"><strong>Vanta</strong> — SOC2, ISO27001, DORA evidence</div>
+                        <div class="backbone-provider"><strong>Drata</strong> — Continuous compliance monitoring</div>
+                    </div>
+                    <div class="backbone-note">DORA + MiCA require audit trails across all ICT/crypto providers. PSD3/PSR coming 2026-27.</div>
+                </div>
+            </div>
+            
+            <!-- ADMIN Column -->
+            <div class="backbone-card">
+                <div class="backbone-card-header">
+                    <div class="backbone-icon">⚙️</div>
+                    <div class="backbone-card-title">ADMIN</div>
+                    <div class="backbone-card-question">Let me manage it</div>
+                </div>
+                <div class="backbone-card-content">
+                    <div class="backbone-needs">
+                        <span>Tokens</span>
+                        <span>Refunds</span>
+                        <span>Disputes</span>
+                        <span>Sub-merchants</span>
+                        <span>Customer ops</span>
+                    </div>
+                    <div class="backbone-providers">
+                        <div class="backbone-provider"><strong>Retool</strong> — Build custom internal tools fast</div>
+                        <div class="backbone-provider"><strong>Forest Admin</strong> — Back-office on your data models</div>
+                        <div class="backbone-provider"><strong>Appsmith</strong> — Open-source internal tools</div>
+                        <div class="backbone-provider"><strong>Basedash</strong> — Database UI, instant admin panel</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- PROCESS Column -->
+            <div class="backbone-card">
+                <div class="backbone-card-header">
+                    <div class="backbone-icon">🔄</div>
+                    <div class="backbone-card-title">PROCESS</div>
+                    <div class="backbone-card-question">Automate it</div>
+                </div>
+                <div class="backbone-card-content">
+                    <div class="backbone-needs">
+                        <span>Reconciliation</span>
+                        <span>Workflows</span>
+                        <span>Smart retries</span>
+                        <span>Notifications</span>
+                        <span>Dunning</span>
+                    </div>
+                    <div class="backbone-providers">
+                        <div class="backbone-provider"><strong>Modern Treasury</strong> — Reconciliation + payment ops</div>
+                        <div class="backbone-provider"><strong>Numeral</strong> — EU payment operations</div>
+                        <div class="backbone-provider"><strong>Camunda</strong> — BPMN workflow orchestration</div>
+                        <div class="backbone-provider"><strong>n8n</strong> — Workflow automation, self-hosted</div>
+                        <div class="backbone-provider"><strong>Temporal</strong> — Durable execution engine</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="backbone-insight">
+            <strong>The pattern:</strong> As you go deeper in the stack (L4 → L5 → L6), your operational complexity increases. The backbone tools become essential — not optional.
+        </div>
+    </div>
+</section>
+
 <!-- ===== ARCHETYPES ===== -->
-<section class="archetypes-section">
+<section id="archetypes" class="archetypes-section">
     <div class="container">
         <div class="section-header">
             <div class="section-label">Archetypes</div>
@@ -1208,6 +1484,7 @@ const useCaseNames = {
     data: 'Own Your Data',
     tokens: 'Own Your Tokens',
     products: 'Own Financial Products',
+    ledger: 'Own Your Ledger',
     compliance: 'Own Your Compliance',
     rails: 'New Rails Readiness',
     agentic: 'Prepare for Agentic'
