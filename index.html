@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BUILD-STACKS V20 — Build, Own, Scale Your Payment Infrastructure</title>
+    <title>BUILD-STACKS V21 — Build, Own, Scale Your Payment Infrastructure</title>
     <meta name="description" content="Stop renting payment infrastructure. 20 layers to build, own, and scale your payment stack. Credit, Insurance, Crypto, Agentic. Built by operators, not vendors.">
     
     <!-- Open Graph -->
@@ -114,12 +114,12 @@
         /* SECTIONS */
         section { padding: 80px 0; }
         .section-header { text-align: center; margin-bottom: 40px; }
-        .section-label { font-family: 'IBM Plex Mono', monospace; font-size: 0.6rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
+        .section-label { font-family: 'IBM Plex Mono', monospace; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; padding: 6px 14px; background: var(--accent-dim); border-radius: 4px; display: inline-block; }
         .section-title { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif; font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 700; letter-spacing: -0.02em; margin-bottom: 12px; }
         .section-subtitle { font-size: 0.85rem; color: var(--text-muted); max-width: 500px; margin: 0 auto; }
         
-        /* WIZARD - COMPACT */
-        .wizard-section { padding: 48px 0; }
+        /* WIZARD - MORE PROMINENT */
+        .wizard-section { padding: 64px 0; background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
         .wizard-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; max-width: 900px; margin: 0 auto; }
         .wizard-card { background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 14px 10px; cursor: pointer; transition: all 0.2s; text-align: center; }
         .wizard-card:hover { border-color: var(--accent); transform: translateY(-2px); }
@@ -451,9 +451,118 @@
             .layer-dot { width: 28px; height: 28px; font-size: 0.5rem; }
             .backbone-card-content { padding: 16px; }
         }
+            /* FIXED NAVIGATION */
+        .nav-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(10,10,10,0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            padding: 0 32px;
+            transition: all 0.3s ease;
+        }
+        .nav-header.scrolled {
+            background: rgba(10,10,10,0.98);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+        .nav-container {
+            max-width: 1140px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 56px;
+        }
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+        .nav-logo svg { width: 24px; height: 32px; }
+        .nav-logo-text {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            color: var(--text);
+        }
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .nav-link {
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            text-decoration: none;
+            padding: 8px 14px;
+            border-radius: 6px;
+            transition: all 0.2s;
+        }
+        .nav-link:hover {
+            color: var(--text);
+            background: var(--surface-2);
+        }
+        .nav-link.active {
+            color: var(--accent);
+            background: var(--accent-dim);
+        }
+        .nav-cta {
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--bg);
+            background: var(--accent);
+            padding: 8px 16px;
+            border-radius: 6px;
+            text-decoration: none;
+            margin-left: 8px;
+            transition: all 0.2s;
+        }
+        .nav-cta:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px var(--accent-glow);
+        }
+        @media (max-width: 700px) {
+            .nav-header { padding: 0 16px; }
+            .nav-links { gap: 4px; }
+            .nav-link { padding: 6px 10px; font-size: 0.65rem; }
+            .nav-cta { padding: 6px 12px; font-size: 0.65rem; }
+        }
+        body { padding-top: 56px; }
     </style>
 </head>
 <body>
+
+<!-- ===== FIXED NAVIGATION ===== -->
+<header class="nav-header" id="nav-header">
+    <nav class="nav-container">
+        <a href="#" class="nav-logo">
+            <svg viewBox="0 0 50 70" xmlns="http://www.w3.org/2000/svg">
+                <g fill="#FF6B00">
+                    <path d="M4 54 L38 54 L46 48 L12 48 Z" opacity="1"/>
+                    <path d="M8 45 L36 45 L44 39 L16 39 Z" opacity="0.82"/>
+                    <path d="M12 36 L34 36 L42 30 L20 30 Z" opacity="0.65"/>
+                    <path d="M16 27 L32 27 L40 21 L24 21 Z" opacity="0.5"/>
+                </g>
+                <line x1="4" y1="62" x2="46" y2="62" stroke="#FF6B00" stroke-width="1.5"/>
+            </svg>
+            <span class="nav-logo-text">STACKS</span>
+        </a>
+        <div class="nav-links">
+            <a href="#wizard" class="nav-link">Issues</a>
+            <a href="#framework" class="nav-link">Building Blocks</a>
+            <a href="#backbone" class="nav-link">Admin Blocks</a>
+            <a href="#archetypes" class="nav-link">Use Cases</a>
+            <a href="#about" class="nav-link">About</a>
+            <a href="https://calendly.com/devillard-nicolas/30min" target="_blank" class="nav-cta">Book Call</a>
+        </div>
+    </nav>
+</header>
 
 <!-- ===== HERO ===== -->
 <section class="hero hero-split">
@@ -476,42 +585,42 @@
                 </div>
             </div>
             <h1>Build, Own, Scale.<br><span class="accent">Don't Rent.</span></h1>
-            <p class="hero-tagline">Payment infrastructure intel for merchants, SaaS & fintechs</p>
-            <p class="hero-sub">21 layers. 200+ providers. Real trade-offs. Built from years inside the stack, not from vendor decks.</p>
+            <p class="hero-tagline">The payment infrastructure map for merchants, SaaS & fintechs</p>
+            <p class="hero-sub">When you outgrow Stripe or Adyen, you face a maze of 200+ providers across 21 layers. STACKS maps who does what, what it costs, and what you actually own. Built from 8+ years operating inside the stack—not from vendor decks.</p>
             
             <div class="hero-cta">
-                <a href="#wizard" class="btn btn-primary">What's Your Goal?</a>
-                <a href="#framework" class="btn btn-secondary">21 Layers</a>
-                <a href="#archetypes" class="btn btn-tertiary">Who Are You?</a>
+                <a href="#wizard" class="btn btn-primary">Issues to Tackle →</a>
+                <a href="#framework" class="btn btn-secondary">21 Building Blocks</a>
+                <a href="#archetypes" class="btn btn-tertiary">Find Your Profile</a>
             </div>
         </div>
         
         <div class="hero-right">
             <div class="arch-mini">
-                <div class="arch-mini-row front">
-                    <div class="arch-mini-label">FRONT SYSTEMS — Who builds on the stack</div>
+                <div class="arch-mini-row front" style="border: 1px solid var(--accent); background: var(--accent-dim);">
+                    <div class="arch-mini-label" style="color: var(--accent); font-weight: 700;">WHO BUILDS ON THE STACK</div>
                     <div class="arch-mini-boxes" style="grid-template-columns: repeat(4, 1fr);">
-                        <div class="arch-box">
-                            <div class="arch-box-title">Merchant</div>
-                            <div class="arch-box-sub">CMS · OMS · POS</div>
+                        <div class="arch-box" style="border-color: #4a90e2; background: rgba(74,144,226,0.1);">
+                            <div class="arch-box-title" style="color: #4a90e2;">Merchant</div>
+                            <div class="arch-box-sub">E-com · Retail</div>
                         </div>
-                        <div class="arch-box">
-                            <div class="arch-box-title">SaaS</div>
-                            <div class="arch-box-sub">Platform · App</div>
+                        <div class="arch-box" style="border-color: #e8a040; background: rgba(232,160,64,0.1);">
+                            <div class="arch-box-title" style="color: #e8a040;">Platform</div>
+                            <div class="arch-box-sub">Marketplace · SaaS</div>
                         </div>
-                        <div class="arch-box">
-                            <div class="arch-box-title">Marketplace</div>
-                            <div class="arch-box-sub">Sellers · Splits</div>
+                        <div class="arch-box" style="border-color: #a868e8; background: rgba(168,104,232,0.1);">
+                            <div class="arch-box-title" style="color: #a868e8;">Fintech</div>
+                            <div class="arch-box-sub">Neobank · Wallet</div>
                         </div>
-                        <div class="arch-box" style="border: 1px solid var(--l-ledger);">
-                            <div class="arch-box-title" style="color: var(--l-ledger);">Fintech</div>
-                            <div class="arch-box-sub">Cards · Banking</div>
+                        <div class="arch-box" style="border-color: #28c8b8; background: rgba(40,200,184,0.1);">
+                            <div class="arch-box-title" style="color: #28c8b8;">Enterprise</div>
+                            <div class="arch-box-sub">B2B · Treasury</div>
                         </div>
                     </div>
                 </div>
-                <div class="arch-mini-arrow">↓ Triggers Payment</div>
+                <div class="arch-mini-arrow">↓ Relies On</div>
                 <div class="arch-mini-row layers">
-                    <div class="arch-mini-label">PAYMENT LAYERS</div>
+                    <div class="arch-mini-label">21 BUILDING BLOCKS</div>
                     <div class="arch-mini-dots">
                         <span style="background: var(--l-psp);">0</span>
                         <span style="background: var(--l-risk);">3</span>
@@ -519,28 +628,28 @@
                         <span style="background: var(--l-vault);">6</span>
                         <span style="background: var(--l-ledger);">7</span>
                         <span style="background: var(--l-money);">9</span>
-                        <span style="background: var(--l-credit);">12</span>
-                        <span style="background: var(--l-insurance);">13</span>
                         <span style="background: var(--l-crypto);">10</span>
                         <span style="background: var(--l-agent);">11</span>
+                        <span style="background: var(--l-credit);">12</span>
+                        <span style="background: var(--l-insurance);">13</span>
                     </div>
-                    <div class="arch-mini-sub">21 layers · Stablecoins · GENIUS Act · Agentic Commerce</div>
+                    <div class="arch-mini-sub">Acquiring · Vault · Route · Stablecoin · Agentic · Credit · Insurance</div>
                 </div>
-                <div class="arch-mini-arrow">↓ Generates Data</div>
+                <div class="arch-mini-arrow">↓ Managed By</div>
                 <div class="arch-mini-row backbone">
-                    <div class="arch-mini-label">OPERATIONAL BACKBONE</div>
+                    <div class="arch-mini-label">ADMIN BLOCKS</div>
                     <div class="arch-mini-boxes">
                         <div class="arch-box">
                             <div class="arch-box-title">📊 Data</div>
-                            <div class="arch-box-sub">What happened?</div>
+                            <div class="arch-box-sub">Analytics · BI</div>
                         </div>
                         <div class="arch-box">
-                            <div class="arch-box-title">⚙️ Admin</div>
-                            <div class="arch-box-sub">Manage it</div>
+                            <div class="arch-box-title">⚙️ Ops</div>
+                            <div class="arch-box-sub">Refunds · Disputes</div>
                         </div>
                         <div class="arch-box">
-                            <div class="arch-box-title">🔄 Process</div>
-                            <div class="arch-box-sub">Automate it</div>
+                            <div class="arch-box-title">🔄 Recon</div>
+                            <div class="arch-box-sub">Settlement · Ledger</div>
                         </div>
                     </div>
                 </div>
@@ -553,9 +662,9 @@
 <section id="wizard" class="wizard-section">
     <div class="container">
         <div class="section-header">
-            <div class="section-label">Start Here With Your Use Case</div>
-            <h2 class="section-title">What Are You Trying To Achieve?</h2>
-            <p class="section-subtitle">Pick your goal. We'll highlight the layers that matter.</p>
+            <div class="section-label">🎯 Issues to Tackle</div>
+            <h2 class="section-title">What Are You Trying To Solve?</h2>
+            <p class="section-subtitle">Pick your issue. We'll highlight the building blocks that matter.</p>
         </div>
         
         <div class="wizard-grid">
@@ -632,9 +741,9 @@
 <section id="framework" class="framework-section">
     <div class="container">
         <div class="section-header">
-            <div class="section-label">The Building Blocks</div>
-            <h2 class="section-title">21 Layers. Your Choices.</h2>
-            <p class="section-subtitle">Click any layer to explore providers. From bundled PSPs to agentic payments.</p>
+            <div class="section-label">📦 21 Building Blocks</div>
+            <h2 class="section-title">The Complete Payment Stack</h2>
+            <p class="section-subtitle">Click any block to explore providers. From bundled PSPs to agentic commerce.</p>
             <div style="display: flex; justify-content: center; gap: 16px; margin-top: 16px; font-size: 0.65rem;">
                 <span><span class="badge mature">MATURE</span> Production-ready</span>
                 <span><span class="badge growing">GROWING</span> Rapid adoption</span>
@@ -837,12 +946,12 @@
                 <div class="layer-value"><div class="layer-output">Own Risk</div><div class="layer-output-sub">or outsource</div></div>
                 <div class="layer-details">
                     <div class="providers-grid">
-                        <div class="provider-card" data-tags="fraud,kyc,aml"><div class="provider-name">Sardine <span class="badge hot">HOT</span></div><div class="provider-desc">All-in-one. Behavior ML + KYC + AML. Crypto-ready.</div></div>
+                        <div class="provider-card" data-tags="fraud,kyc,aml"><div class="provider-name">Sardine <span class="badge hot">$660M</span></div><div class="provider-desc">$70M Series C Feb '25. AI agents automate fraud ops. 2.2B devices profiled. 130% YoY ARR growth.</div></div>
                         <div class="provider-card" data-tags="fraud"><div class="provider-name">Stripe Radar</div><div class="provider-desc">ML fraud built into Stripe. 38% less fraud on average. Custom rules.</div></div>
                         <div class="provider-card" data-tags="fraud"><div class="provider-name">Ravelin</div><div class="provider-desc">ML fraud. 3DS optimization. UK-based.</div></div>
                         <div class="provider-card" data-tags="fraud"><div class="provider-name">Sift</div><div class="provider-desc">Digital trust platform. Account protection.</div></div>
                         <div class="provider-card" data-tags="fraud"><div class="provider-name">Signifyd</div><div class="provider-desc">100% chargeback guarantee. E-commerce.</div></div>
-                        <div class="provider-card" data-tags="fraud"><div class="provider-name">Forter</div><div class="provider-desc">Guaranteed fraud protection. Banks + merchants.</div></div>
+                        <div class="provider-card" data-tags="fraud"><div class="provider-name">Forter <span class="badge new">TACP</span></div><div class="provider-desc">Trusted Agentic Commerce Protocol. Agent authentication + identity trust. AWS Marketplace live. GitHub open.</div></div>
                         <div class="provider-card" data-tags="fraud"><div class="provider-name">Riskified</div><div class="provider-desc">Chargeback guarantee. Public company.</div></div>
                         <div class="provider-card" data-tags="fraud"><div class="provider-name">Feedzai</div><div class="provider-desc">Bank-grade ML. Enterprise fraud.</div></div>
                         <div class="provider-card" data-tags="identity"><div class="provider-name">Stytch <span class="badge hot">HOT</span></div><div class="provider-desc">Passwordless auth. Passkeys. B2B auth. $1B+ valuation.</div></div>
@@ -859,6 +968,9 @@
                         <div class="provider-card" data-tags="disputes"><div class="provider-name">Ethoca (Mastercard)</div><div class="provider-desc">Consumer Clarity. Real-time alerts. Prevention.</div></div>
                         <div class="provider-card" data-tags="aml"><div class="provider-name">Chainalysis</div><div class="provider-desc">Crypto compliance. Blockchain analytics.</div></div>
                         <div class="provider-card" data-tags="aml"><div class="provider-name">ComplyAdvantage</div><div class="provider-desc">AML data. Sanctions screening.</div></div>
+                    </div>
+                    <div class="layer-callout">
+                        <strong>Sardine vs Forter in Agentic:</strong> Sardine = AI agents automate YOUR fraud ops (internal). Forter TACP = authenticate EXTERNAL AI shopping agents. Different problems, both L3.
                     </div>
                 </div>
             </div>
@@ -878,7 +990,7 @@
                         <div class="provider-card" data-tags="orchestration"><div class="provider-name">Spreedly</div><div class="provider-desc">$45B+ volume. Universal vault + routing. 100+ countries.</div></div>
                         <div class="provider-card" data-tags="orchestration"><div class="provider-name">Primer</div><div class="provider-desc">$75M raised. Drag-and-drop payment flows.</div></div>
                         <div class="provider-card" data-tags="orchestration"><div class="provider-name">Payrails</div><div class="provider-desc">Workflow engine. Rule-based routing.</div></div>
-                        <div class="provider-card" data-tags="orchestration"><div class="provider-name">Gr4vy</div><div class="provider-desc">Cloud-native orchestration. Open-source option.</div></div>
+                        <div class="provider-card" data-tags="orchestration"><div class="provider-name">Gr4vy <span class="badge new">AGENTIC</span></div><div class="provider-desc">Cloud-native orchestration. Agentic MVP Sept '25. MCP + AP2 integration. Agent-specific rules.</div></div>
                         <div class="provider-card" data-tags="orchestration"><div class="provider-name">Yuno</div><div class="provider-desc">LatAm focused. Local payment routing.</div></div>
                         <div class="provider-card" data-tags="orchestration"><div class="provider-name">Deuna</div><div class="provider-desc">LatAm orchestration. Checkout + routing.</div></div>
                     </div>
@@ -1018,7 +1130,7 @@
                         <div class="provider-card" data-tags="payout"><div class="provider-name">Airwallex</div><div class="provider-desc">Multi-currency accounts. APAC strength. $5.5B valuation.</div></div>
                         <div class="provider-card" data-tags="payout"><div class="provider-name">Payoneer</div><div class="provider-desc">Global mass payouts. 190+ countries. Public company.</div></div>
                         <div class="provider-card" data-tags="payout"><div class="provider-name">Tipalti</div><div class="provider-desc">AP automation. Supplier payouts. Tax compliance.</div></div>
-                        <div class="provider-card" data-tags="payout"><div class="provider-name">Thunes</div><div class="provider-desc">Emerging markets. Mobile money. Africa, SEA.</div></div>
+                        <div class="provider-card" data-tags="payout"><div class="provider-name">Thunes <span class="badge hot">$150M</span></div><div class="provider-desc">Series D Apr '25. US 50-state licenses. 130 countries, 550 direct integrations. Profitable.</div></div>
                         <div class="provider-card" data-tags="payout"><div class="provider-name">Nium</div><div class="provider-desc">APAC real-time. 100+ countries. Licensed globally.</div></div>
                         <div class="provider-card" data-tags="capital"><div class="provider-name">Sivo <span class="badge hot">HOT</span></div><div class="provider-desc">"Stripe for Debt." Debt-as-a-Service API. $100M capital.</div></div>
                     </div>
@@ -1102,9 +1214,14 @@
                         <div class="provider-card" data-tags="use"><div class="provider-name">Circle <span class="badge hot">IPO</span></div><div class="provider-desc">USDC. NYSE: CRCL June '25. $73.7B circulation. $21B mkt cap. CPN network.</div></div>
                         <div class="provider-card" data-tags="use,issue"><div class="provider-name">Paxos <span class="badge hot">HOT</span></div><div class="provider-desc">Powers PayPal PYUSD. Modern Treasury partner. Global Dollar Network (USDG).</div></div>
                         <div class="provider-card" data-tags="use"><div class="provider-name">Tether</div><div class="provider-desc">USDT. $155B+ supply. Dominant EM. Not GENIUS compliant.</div></div>
+                        <div class="provider-card" data-tags="issue"><div class="provider-name">SoFiUSD <span class="badge new">DEC '25</span></div><div class="provider-desc">First national bank stablecoin. OCC-regulated. White-label infra for banks/fintechs.</div></div>
                         <div class="provider-card" data-tags="issue"><div class="provider-name">Bridge Open Issuance <span class="badge new">NEW</span></div><div class="provider-desc">Stripe. Launch your own stablecoin. Capture reserve yield. Oct '25.</div></div>
                         <div class="provider-card" data-tags="yield"><div class="provider-name">Hashnote (Circle) <span class="badge new">NEW</span></div><div class="provider-desc">USYC tokenized MMF. $1.5B AUM. Acquired by Circle Jan '25.</div></div>
+                        <div class="provider-card" data-tags="issue"><div class="provider-name">Stablecore <span class="badge new">$20M</span></div><div class="provider-desc">Bank infrastructure only. Community/regional banks issue own stablecoins. Not merchant-facing.</div></div>
                         <div class="provider-card" data-tags="issue"><div class="provider-name">Breeze</div><div class="provider-desc">Stablecoin-as-a-Service. White-label issuance.</div></div>
+                    </div>
+                    <div class="layer-callout">
+                        <strong>Who can use what:</strong> SoFiUSD + Bridge = fintechs/merchants can directly use or white-label. Stablecore = bank infrastructure only (plugs into Jack Henry, FIS cores). Merchants go through the bank, not direct API.
                     </div>
                 </div>
             </div>
@@ -1178,7 +1295,7 @@
                 </div>
             </div>
             
-            <div class="layer-group-label">Agentic Commerce Infrastructure — AI Payments <span class="badge hot">LIVE Q4 2025</span></div>
+            <div class="layer-group-label">Agentic Commerce Infrastructure — AI Payments <span class="badge hot">SHIPPING Q1 2026</span></div>
             
             <!-- L11.1 - Protocols & Standards -->
             <div class="layer" data-layer="agent-protocol" data-usecases="agentic" onclick="toggleLayer(this)">
@@ -1194,7 +1311,9 @@
                 <div class="layer-details">
                     <div class="providers-grid">
                         <div class="provider-card" data-tags="open"><div class="provider-name">Stripe ACP <span class="badge hot">HOT</span></div><div class="provider-desc">Agentic Commerce Protocol. Open standard with OpenAI. Shared Payment Token (SPT).</div></div>
-                        <div class="provider-card" data-tags="open"><div class="provider-name">Google AP2 <span class="badge hot">HOT</span></div><div class="provider-desc">Agent Payments Protocol. Core (cards, bank) + x402 extension (crypto). Ant Intl partner.</div></div>
+                        <div class="provider-card" data-tags="open"><div class="provider-name">Google AP2 <span class="badge hot">60+ PARTNERS</span></div><div class="provider-desc">Agent Payments Protocol. Adyen, Amex, Coinbase, PayPal, Mastercard, Revolut. Mandate system for agent authorization.</div></div>
+                        <div class="provider-card" data-tags="open"><div class="provider-name">Gr4vy Agentic <span class="badge new">MVP</span></div><div class="provider-desc">Sept '25 alpha. MCP server + AP2 integration. Agent-specific rules, fraud controls, orchestration.</div></div>
+                        <div class="provider-card" data-tags="open"><div class="provider-name">Forter TACP <span class="badge new">OPEN</span></div><div class="provider-desc">Trusted Agentic Commerce Protocol. GitHub open. Agent authentication + merchant trust. Not same as fraud ops.</div></div>
                         <div class="provider-card" data-tags="open"><div class="provider-name">Cloudflare Web Bot Auth</div><div class="provider-desc">IETF RFC 9421. AI agent authentication standard. Akamai integration.</div></div>
                         <div class="provider-card" data-tags="network"><div class="provider-name">Visa Trusted Agent Protocol</div><div class="provider-desc">AI-Ready Cards. Tokenized credentials. Cloudflare + Akamai partners.</div></div>
                         <div class="provider-card" data-tags="network"><div class="provider-name">Mastercard Agent Pay Framework</div><div class="provider-desc">Agentic Tokens + Web Bot Auth. LATAM rollout Dec '25.</div></div>
@@ -1259,6 +1378,7 @@
                 <div class="layer-details">
                     <div class="providers-grid">
                         <div class="provider-card" data-tags="live"><div class="provider-name">ChatGPT Instant Checkout <span class="badge hot">LIVE</span></div><div class="provider-desc">OpenAI + Stripe ACP. Etsy, Shopify live. Agent completes purchase in chat.</div></div>
+                        <div class="provider-card" data-tags="infra"><div class="provider-name">InFlow <span class="badge new">DEC '25</span></div><div class="provider-desc">Agent-native payments. Ex-PayPal team (RubyCoins). Agents onboard + pay autonomously. Zero friction.</div></div>
                         <div class="provider-card" data-tags="infra"><div class="provider-name">Rye <span class="badge hot">HOT</span></div><div class="provider-desc">a16z crypto. Universal Checkout API. &lt;5s completion, 99.9% reliability.</div></div>
                         <div class="provider-card" data-tags="infra"><div class="provider-name">Natural <span class="badge new">$9.8M</span></div><div class="provider-desc">Nov '25. B2B agentic payments infra. Logistics, procurement, healthcare.</div></div>
                         <div class="provider-card" data-tags="infra"><div class="provider-name">PayOS <span class="badge new">NEW</span></div><div class="provider-desc">Agent-driven checkout infrastructure. Browser automation.</div></div>
@@ -1294,12 +1414,12 @@
     </div>
 </section>
 
-<!-- ===== OPERATIONAL BACKBONE ===== -->
+<!-- ===== ADMIN BLOCKS ===== -->
 <section id="backbone" class="backbone-section">
     <div class="container">
         <div class="section-header">
-            <div class="section-label">Operational Backbone</div>
-            <h2 class="section-title">What Manages Your Stack</h2>
+            <div class="section-label">⚙️ Admin Blocks</div>
+            <h2 class="section-title">What Runs Your Stack</h2>
             <p class="section-subtitle">When you unbundle from Stripe/Adyen, you lose their dashboard. You need to rebuild three things.</p>
         </div>
         
@@ -1418,18 +1538,18 @@
         </div>
         
         <div class="backbone-insight">
-            <strong>The pattern:</strong> As you go deeper in the stack, operational complexity increases. Backbone tools become essential — not optional.
+            <strong>The pattern:</strong> As you go deeper in the stack, operational complexity increases. Admin blocks become essential — not optional.
         </div>
     </div>
 </section>
 
-<!-- ===== ARCHETYPES ===== -->
+<!-- ===== USE CASES ===== -->
 <section id="archetypes" class="archetypes-section">
     <div class="container">
         <div class="section-header">
-            <div class="section-label">Archetypes</div>
-            <h2 class="section-title">Who Are You?</h2>
-            <p class="section-subtitle">Your business model determines which layers matter most.</p>
+            <div class="section-label">👤 Use Cases & Clients</div>
+            <h2 class="section-title">Find Your Profile</h2>
+            <p class="section-subtitle">Your business model determines which building blocks matter most.</p>
         </div>
         <div class="archetype-container">
             
@@ -1708,14 +1828,24 @@
 <!-- ===== FOOTER ===== -->
 <footer>
     <div class="container">
-        <p><span class="hl">BUILD-STACKS</span> — Built for those who want to own their payments, not rent them.</p>
+        <p><span class="hl">BUILD-STACKS V21</span> — Built for those who want to own their payments, not rent them.</p>
         <p style="margin-top: 12px; font-size: 0.7rem; color: var(--text-dim);">
-            © 2025 · <a href="https://www.linkedin.com/in/nicolas-devillard/" target="_blank" style="color: var(--text-dim); text-decoration: none;">Nicolas Devillard</a> · NYC
+            © 2025 · <a href="https://www.linkedin.com/in/nicolas-devillard/" target="_blank" style="color: var(--text-dim); text-decoration: none;">Nicolas Devillard</a> · NYC · Last updated: December 2025
         </p>
     </div>
 </footer>
 
 <script>
+// Nav scroll effect
+const navHeader = document.getElementById('nav-header');
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+        navHeader.classList.add('scrolled');
+    } else {
+        navHeader.classList.remove('scrolled');
+    }
+});
+
 // Animate layers on scroll
 const layers = document.querySelectorAll('.layer');
 const observer = new IntersectionObserver((entries) => {
