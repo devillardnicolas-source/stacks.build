@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BUILD-STACKS V21 — Build, Own, Scale Your Payment Infrastructure</title>
+    <title>BUILD-STACKS V22 — Build, Own, Scale Your Payment Infrastructure</title>
     <meta name="description" content="Stop renting payment infrastructure. 20 layers to build, own, and scale your payment stack. Credit, Insurance, Crypto, Agentic. Built by operators, not vendors.">
     
     <!-- Open Graph -->
@@ -954,6 +954,7 @@
                         <div class="provider-card" data-tags="fraud"><div class="provider-name">Forter <span class="badge new">TACP</span></div><div class="provider-desc">Trusted Agentic Commerce Protocol. Agent authentication + identity trust. AWS Marketplace live. GitHub open.</div></div>
                         <div class="provider-card" data-tags="fraud"><div class="provider-name">Riskified</div><div class="provider-desc">Chargeback guarantee. Public company.</div></div>
                         <div class="provider-card" data-tags="fraud"><div class="provider-name">Feedzai</div><div class="provider-desc">Bank-grade ML. Enterprise fraud.</div></div>
+                        <div class="provider-card" data-tags="fraud,aml"><div class="provider-name">Marble <span class="badge oss">OSS</span></div><div class="provider-desc">Open-source fraud & AML decisioning. Hexa portfolio (Spendesk, Aircall). 100+ clients. No-code rules. Self-hosted or SaaS.</div></div>
                         <div class="provider-card" data-tags="identity"><div class="provider-name">Stytch <span class="badge hot">HOT</span></div><div class="provider-desc">Passwordless auth. Passkeys. B2B auth. $1B+ valuation.</div></div>
                         <div class="provider-card" data-tags="identity"><div class="provider-name">Passage (1Password)</div><div class="provider-desc">Passkeys-first. Acquired by 1Password.</div></div>
                         <div class="provider-card" data-tags="identity"><div class="provider-name">Auth0 (Okta)</div><div class="provider-desc">Identity platform. Enterprise SSO. MFA.</div></div>
@@ -1065,7 +1066,6 @@
                 <div class="layer-details">
                     <div class="providers-grid">
                         <div class="provider-card" data-tags="ledger"><div class="provider-name">Formance <span class="badge oss">OSS</span></div><div class="provider-desc">Open-source ledger. Numscript DSL. Own your stack.</div></div>
-                        <div class="provider-card" data-tags="ledger"><div class="provider-name">Modern Treasury <span class="badge hot">2025</span></div><div class="provider-desc">Beam acquisition (Oct '25). Paxos + USDG partner. Stablecoin rails live.</div></div>
                         <div class="provider-card" data-tags="ledger"><div class="provider-name">Mambu</div><div class="provider-desc">Cloud core banking. SaaS model.</div></div>
                         <div class="provider-card" data-tags="ledger"><div class="provider-name">Thought Machine</div><div class="provider-desc">Cloud-native core. Vault platform. Tier 1 banks.</div></div>
                         <div class="provider-card" data-tags="ledger"><div class="provider-name">10x Banking</div><div class="provider-desc">Cloud-native core. UK-based. Westpac client.</div></div>
@@ -1226,50 +1226,61 @@
                 </div>
             </div>
             
-            <!-- L10.2 - Custody & Wallets -->
+            <!-- L10.2 - Wallet Infrastructure -->
             <div class="layer" data-layer="crypto-custody" data-usecases="ledger,compliance" onclick="toggleLayer(this)">
-                <div class="layer-depth" data-name="Custody">L10.2</div>
-                <div class="layer-title"><div class="layer-name">Custody & Wallets</div><div class="layer-sub">Hold crypto assets securely</div></div>
+                <div class="layer-depth" data-name="Wallets">L10.2</div>
+                <div class="layer-title"><div class="layer-name">Wallet Infrastructure</div><div class="layer-sub">Embedded wallets, key management, custody</div></div>
                 <div class="layer-content">
                     <div class="block active" data-filter="all" onclick="filterProviders(event, this)">All<span class="desc">Show all</span></div>
-                    <div class="block" data-filter="api" onclick="filterProviders(event, this)">API Wallet Infra<span class="desc">Embed in your app</span></div>
+                    <div class="block" data-filter="embedded" onclick="filterProviders(event, this)">Embedded Wallets<span class="desc">In-app wallets</span></div>
                     <div class="block" data-filter="enterprise" onclick="filterProviders(event, this)">Enterprise Custody<span class="desc">Institutional grade</span></div>
                 </div>
-                <div class="layer-value"><div class="layer-output">Security</div><div class="layer-output-sub">hold assets</div></div>
+                <div class="layer-value"><div class="layer-output">175M+ wallets</div><div class="layer-output-sub">Stripe + Fireblocks consolidating</div></div>
                 <div class="layer-details">
                     <div class="providers-grid">
-                        <div class="provider-card" data-tags="api"><div class="provider-name">Privy (Stripe) <span class="badge hot">ACQ</span></div><div class="provider-desc">Acquired June '25. 75M+ wallets. One-click wallet creation. Powers Stripe crypto UX.</div></div>
-                        <div class="provider-card" data-tags="api"><div class="provider-name">Crossmint <span class="badge hot">$24M</span></div><div class="provider-desc">40+ blockchains. Agentic commerce toolkit. 40K devs. 1,100% revenue growth.</div></div>
-                        <div class="provider-card" data-tags="api"><div class="provider-name">DFNS <span class="badge hot">HOT</span></div><div class="provider-desc">API-first wallet infra. MPC. For fintechs building wallets.</div></div>
-                        <div class="provider-card" data-tags="enterprise"><div class="provider-name">Fireblocks</div><div class="provider-desc">Enterprise custody. 1800+ clients. $4B+ daily transfers. Stablecoin network Sept '25.</div></div>
-                        <div class="provider-card" data-tags="enterprise"><div class="provider-name">Fordefi</div><div class="provider-desc">Institutional MPC wallets. Acquired by Paxos $100M+.</div></div>
+                        <div class="provider-card" data-tags="embedded"><div class="provider-name">Turnkey <span class="badge hot">$52M</span></div><div class="provider-desc">Ex-Coinbase Custody. 50M+ wallets. TEE-based. Bridge, Polymarket, Magic Eden, Alchemy.</div></div>
+                        <div class="provider-card" data-tags="embedded"><div class="provider-name">Privy → Stripe <span class="badge hot">ACQ JUN '25</span></div><div class="provider-desc">75M+ accounts. One-click wallet creation. Hyperliquid, OpenSea, Blackbird.</div></div>
+                        <div class="provider-card" data-tags="embedded,enterprise"><div class="provider-name">Dynamic → Fireblocks <span class="badge hot">ACQ OCT '25</span></div><div class="provider-desc">~$90M deal. 50M accounts. Kraken, zerohash, Magic Eden, Ondo Finance.</div></div>
+                        <div class="provider-card" data-tags="embedded"><div class="provider-name">Crossmint <span class="badge hot">$24M</span></div><div class="provider-desc">40+ blockchains. Agentic commerce toolkit. 40K devs. 1,100% revenue growth.</div></div>
+                        <div class="provider-card" data-tags="embedded"><div class="provider-name">DFNS</div><div class="provider-desc">API-first wallet infra. MPC. For fintechs building wallets.</div></div>
+                        <div class="provider-card" data-tags="enterprise"><div class="provider-name">Fireblocks <span class="badge hot">DYNAMIC</span></div><div class="provider-desc">Enterprise custody + now consumer. 2400+ clients. $4T+ annual. "Custody-to-consumer" stack.</div></div>
                         <div class="provider-card" data-tags="enterprise"><div class="provider-name">BitGo</div><div class="provider-desc">Multi-sig custody. $100B+ assets. Insurance available.</div></div>
                         <div class="provider-card" data-tags="enterprise"><div class="provider-name">Anchorage</div><div class="provider-desc">US qualified custodian. OCC-chartered. Institutional only.</div></div>
+                    </div>
+                    <div class="layer-callout">
+                        <strong>2025 Consolidation:</strong> Stripe owns Bridge (stablecoin) + Privy (wallets) = full crypto stack. Fireblocks owns Dynamic (wallets) = custody-to-consumer. <strong>Turnkey = last major independent embedded wallet infra.</strong>
                     </div>
                 </div>
             </div>
             
-            <!-- L10.3 - Acceptance & Settlement -->
+            <!-- L10.3 - On/Off-Ramp & Card Issuing -->
             <div class="layer" data-layer="crypto-settle" data-usecases="rails" onclick="toggleLayer(this)">
-                <div class="layer-depth" data-name="Settlement">L10.3</div>
-                <div class="layer-title"><div class="layer-name">Acceptance & Settlement</div><div class="layer-sub">Accept stablecoins, settle to fiat</div></div>
+                <div class="layer-depth" data-name="Ramp">L10.3</div>
+                <div class="layer-title"><div class="layer-name">On/Off-Ramp & Card Issuing</div><div class="layer-sub">Fiat↔crypto + spend stablecoins</div></div>
                 <div class="layer-content">
                     <div class="block active" data-filter="all" onclick="filterProviders(event, this)">All<span class="desc">Show all</span></div>
-                    <div class="block" data-filter="accept" onclick="filterProviders(event, this)">Accept Crypto<span class="desc">Customer pays USDC</span></div>
-                    <div class="block" data-filter="payout" onclick="filterProviders(event, this)">Crypto Payouts<span class="desc">Pay vendors 24/7</span></div>
-                    <div class="block" data-filter="card" onclick="filterProviders(event, this)">Stablecoin Cards<span class="desc">Spend USDC at Visa</span></div>
-                    <div class="block" data-filter="network" onclick="filterProviders(event, this)">Network Settlement<span class="desc">Visa, card rails</span></div>
+                    <div class="block" data-filter="ramp" onclick="filterProviders(event, this)">On/Off-Ramp<span class="desc">Fiat ↔ Crypto</span></div>
+                    <div class="block" data-filter="card" onclick="filterProviders(event, this)">Crypto Card Issuing<span class="desc">Stablecoin spend</span></div>
+                    <div class="block" data-filter="accept" onclick="filterProviders(event, this)">Accept Crypto<span class="desc">Merchant payments</span></div>
                 </div>
-                <div class="layer-value"><div class="layer-output">24/7 Rails</div><div class="layer-output-sub">$3.5B+ Visa vol</div></div>
+                <div class="layer-value"><div class="layer-output">Spend USDC</div><div class="layer-output-sub">at 150M+ merchants</div></div>
                 <div class="layer-details">
                     <div class="providers-grid">
-                        <div class="provider-card" data-tags="accept,payout,card"><div class="provider-name">Bridge (Stripe) <span class="badge hot">$1.1B</span></div><div class="provider-desc">Closed Feb '25. 101 countries. USDB + USDC. Stablecoin Financial Accounts. Visa card issuing.</div></div>
-                        <div class="provider-card" data-tags="accept,payout"><div class="provider-name">BVNK <span class="badge hot">HOT</span></div><div class="provider-desc">$30B annualized. Citi + Visa invested Oct '25. Worldpay, Deel, Flywire clients.</div></div>
-                        <div class="provider-card" data-tags="accept,payout"><div class="provider-name">Modern Treasury + Paxos <span class="badge new">NEW</span></div><div class="provider-desc">Dec '25 partnership. Global Dollar Network (USDG). Stablecoins alongside ACH/wire.</div></div>
-                        <div class="provider-card" data-tags="network"><div class="provider-name">Visa USDC Settlement <span class="badge new">US LIVE</span></div><div class="provider-desc">Dec '25 US launch. $3.5B annualized. Solana. Cross River, Lead Bank live.</div></div>
-                        <div class="provider-card" data-tags="payout"><div class="provider-name">Lightspark <span class="badge hot">HOT</span></div><div class="provider-desc">Lightning network. David Marcus. Instant cross-border. Coinbase + Nubank partners.</div></div>
+                        <div class="provider-card" data-tags="card"><div class="provider-name">Rain <span class="badge hot">$88M SERIES B</span></div><div class="provider-desc">Stablecoin-native card issuing. Visa PM. 15x growth. Nuvei, KAST, Avalanche Card, Western Union.</div></div>
+                        <div class="provider-card" data-tags="card"><div class="provider-name">Baanx <span class="badge hot">FCA</span></div><div class="provider-desc">Self-custody cards. MetaMask Card, Ledger CL Card, Exodus Card. 1inch. EMI licensed.</div></div>
+                        <div class="provider-card" data-tags="card"><div class="provider-name">Immersve</div><div class="provider-desc">Mastercard issuing-as-a-service. Bitget Wallet (80M users). UK/EU/LATAM.</div></div>
+                        <div class="provider-card" data-tags="ramp"><div class="provider-name">MoonPay <span class="badge hot">$3B</span></div><div class="provider-desc">160+ countries. Acquired Meso (Sept '25). MetaMask, Uniswap, OpenSea. Full ramp stack.</div></div>
+                        <div class="provider-card" data-tags="ramp"><div class="provider-name">Transak <span class="badge new">6 US MTLs</span></div><div class="provider-desc">MetaMask mUSD partner. First wire-to-crypto. 64 countries. Ledger, Trust Wallet.</div></div>
+                        <div class="provider-card" data-tags="ramp"><div class="provider-name">Ramp Network</div><div class="provider-desc">150+ countries. FCA + FinCEN. GameStop, MetaMask, Ledger. Open Banking KYC.</div></div>
+                        <div class="provider-card" data-tags="accept,card"><div class="provider-name">Bridge (Stripe) <span class="badge hot">$1.1B</span></div><div class="provider-desc">101 countries. USDB + USDC. Stablecoin Financial Accounts. Visa card issuing.</div></div>
+                        <div class="provider-card" data-tags="accept"><div class="provider-name">BVNK <span class="badge hot">HOT</span></div><div class="provider-desc">$30B annualized. Citi + Visa invested Oct '25. Worldpay, Deel, Flywire clients.</div></div>
+                        <div class="provider-card" data-tags="accept"><div class="provider-name">Modern Treasury + Beam <span class="badge new">OCT '25</span></div><div class="provider-desc">Hybrid fiat + stablecoin API. ACH, wire, RTP, FedNow + USDC/USDG. First payment ops platform with both rails.</div></div>
+                        <div class="provider-card" data-tags="accept"><div class="provider-name">Visa USDC Settlement <span class="badge new">US LIVE</span></div><div class="provider-desc">Dec '25 US launch. $3.5B annualized. Solana. Cross River, Lead Bank.</div></div>
+                        <div class="provider-card" data-tags="accept"><div class="provider-name">Lightspark <span class="badge hot">HOT</span></div><div class="provider-desc">Lightning network. David Marcus. Instant cross-border. Coinbase + Nubank.</div></div>
                         <div class="provider-card" data-tags="accept"><div class="provider-name">BitPay</div><div class="provider-desc">Crypto acceptance since 2011. Merchant settlement to fiat.</div></div>
-                        <div class="provider-card" data-tags="payout"><div class="provider-name">Infinia <span class="badge new">NEW</span></div><div class="provider-desc">YC. Stablecoin → local EM rails. dLocal founding team.</div></div>
+                    </div>
+                    <div class="layer-callout">
+                        <strong>Crypto Neobank Stack (Slash example):</strong> Rain (card issuing) + Turnkey (wallet infra) + Phantom (end-user wallet). Rain is the "Marqeta for stablecoins" — Visa Principal Member, omni-chain settlement.
                     </div>
                 </div>
             </div>
@@ -1310,7 +1321,8 @@
                 <div class="layer-value"><div class="layer-output">Standards</div><div class="layer-output-sub">interoperability</div></div>
                 <div class="layer-details">
                     <div class="providers-grid">
-                        <div class="provider-card" data-tags="open"><div class="provider-name">Stripe ACP <span class="badge hot">HOT</span></div><div class="provider-desc">Agentic Commerce Protocol. Open standard with OpenAI. Shared Payment Token (SPT).</div></div>
+                        <div class="provider-card" data-tags="open"><div class="provider-name">Stripe ACP <span class="badge hot">HOT</span></div><div class="provider-desc">Agentic Commerce Protocol. Open standard with OpenAI. Shared Payment Token (SPT). Etsy + Shopify live.</div></div>
+                        <div class="provider-card" data-tags="open"><div class="provider-name">Google UCP <span class="badge new">NEW</span></div><div class="provider-desc">Universal Commerce Protocol. Direct ACP competitor. Launch partners: Target, Walmart, Shopify. Mandate-based agent authorization.</div></div>
                         <div class="provider-card" data-tags="open"><div class="provider-name">Google AP2 <span class="badge hot">60+ PARTNERS</span></div><div class="provider-desc">Agent Payments Protocol. Adyen, Amex, Coinbase, PayPal, Mastercard, Revolut. Mandate system for agent authorization.</div></div>
                         <div class="provider-card" data-tags="open"><div class="provider-name">Gr4vy Agentic <span class="badge new">MVP</span></div><div class="provider-desc">Sept '25 alpha. MCP server + AP2 integration. Agent-specific rules, fraud controls, orchestration.</div></div>
                         <div class="provider-card" data-tags="open"><div class="provider-name">Forter TACP <span class="badge new">OPEN</span></div><div class="provider-desc">Trusted Agentic Commerce Protocol. GitHub open. Agent authentication + merchant trust. Not same as fraud ops.</div></div>
@@ -1320,6 +1332,9 @@
                         <div class="provider-card" data-tags="crypto"><div class="provider-name">Circuit & Chisel <span class="badge hot">$19M</span></div><div class="provider-desc">Sept '25. ATXP "HTTP for agents." Ex-Stripe crypto leads. Stripe/Coinbase/Solana investors.</div></div>
                         <div class="provider-card" data-tags="crypto"><div class="provider-name">x402 Protocol</div><div class="provider-desc">Coinbase/Ethereum Foundation/MetaMask. HTTP 402 for AI micropayments.</div></div>
                         <div class="provider-card" data-tags="crypto"><div class="provider-name">Skyfire KYA <span class="badge new">NEW</span></div><div class="provider-desc">Know Your Agent. Agent identity + verification protocol.</div></div>
+                    </div>
+                    <div class="layer-callout">
+                        <strong>Protocol War: ACP vs UCP</strong> — OpenAI/Stripe (ACP) vs Google (UCP) competing for agentic commerce standard. Both mandate-based. Watch which merchants + wallets integrate which. Early signal: Shopify backing both.
                     </div>
                 </div>
             </div>
@@ -1828,9 +1843,9 @@
 <!-- ===== FOOTER ===== -->
 <footer>
     <div class="container">
-        <p><span class="hl">BUILD-STACKS V21</span> — Built for those who want to own their payments, not rent them.</p>
+        <p><span class="hl">BUILD-STACKS V22</span> — Built for those who want to own their payments, not rent them.</p>
         <p style="margin-top: 12px; font-size: 0.7rem; color: var(--text-dim);">
-            © 2025 · <a href="https://www.linkedin.com/in/nicolas-devillard/" target="_blank" style="color: var(--text-dim); text-decoration: none;">Nicolas Devillard</a> · NYC · Last updated: December 2025
+            © 2026 · <a href="https://www.linkedin.com/in/nicolas-devillard/" target="_blank" style="color: var(--text-dim); text-decoration: none;">Nicolas Devillard</a> · NYC · Last updated: January 2026
         </p>
     </div>
 </footer>
